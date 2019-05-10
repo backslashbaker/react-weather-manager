@@ -4,7 +4,7 @@ export function transformOpenWeatherData(openWeatherData) {
         "country": openWeatherData.sys.country,
         "summary": openWeatherData.weather[0].main,
         "details": openWeatherData.weather[0].description,
-        "image": openWeatherData.weather[0].icon,
+        "image": getImageUrl(openWeatherData.weather[0].icon),
         "temperatureCurrent": convertKelvinToCelcius(openWeatherData.main.temp),
         "humidity": openWeatherData.main.humidity,
         "temperatureMin": convertKelvinToCelcius(openWeatherData.main.temp_min),
@@ -18,4 +18,8 @@ export function convertKelvinToCelcius(kelvin) {
     const converted = kelvin - kelvinDifference;
 
     return converted.toFixed(2)
+}
+
+export function getImageUrl(icon){
+    return `http://openweathermap.org/img/w/${icon}.png`
 }

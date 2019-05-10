@@ -1,4 +1,4 @@
-import { transformOpenWeatherData, convertKelvinToCelcius } from '../weather-transformer';
+import { transformOpenWeatherData, convertKelvinToCelcius, getImageUrl } from '../weather-transformer';
 
 describe('weather-transformer', () => {
     const openWeatherData = {
@@ -44,12 +44,13 @@ describe('weather-transformer', () => {
             "cod": 200
     }
 
+
     it('gives us the data we expect', () => {
         expect(transformOpenWeatherData(openWeatherData)).toHaveProperty("city", "London")
         expect(transformOpenWeatherData(openWeatherData)).toHaveProperty("country", "GB")
         expect(transformOpenWeatherData(openWeatherData)).toHaveProperty("summary", "Drizzle")
         expect(transformOpenWeatherData(openWeatherData)).toHaveProperty("details", "light intensity drizzle")
-        expect(transformOpenWeatherData(openWeatherData)).toHaveProperty("image", "09d")
+        expect(transformOpenWeatherData(openWeatherData)).toHaveProperty("image", "http://openweathermap.org/img/w/09d.png")
         expect(transformOpenWeatherData(openWeatherData)).toHaveProperty("temperatureCurrent", "7.17")
         expect(transformOpenWeatherData(openWeatherData)).toHaveProperty("humidity", 81);
         expect(transformOpenWeatherData(openWeatherData)).toHaveProperty("temperatureMin", "6.00");
@@ -60,6 +61,10 @@ describe('weather-transformer', () => {
         expect(convertKelvinToCelcius(280.32)).toEqual("7.17");
         expect(convertKelvinToCelcius(279.15)).toEqual("6.00");
         expect(convertKelvinToCelcius(281.15)).toEqual("8.00");
+    })
+
+    it('converts image code into url', () => {
+        expect(getImageUrl('09d')).toEqual("http://openweathermap.org/img/w/09d.png");
     })
 
 })

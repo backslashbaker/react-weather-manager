@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Weather Manager
 
 - [x] Transform openweather data into our own object
-- [ ] Display dummy weather data
+- [x] Display dummy weather data
 - [ ] Display London weather data
 - [ ] Display predefined weather data (drop down list)
 - [ ] Search for any city's weather data

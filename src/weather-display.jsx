@@ -25,7 +25,7 @@ export class WeatherDisplay extends React.Component {
         <tr>
             <td>{ data.summary }</td>
             <td>{ data.details }</td> 
-            <td>{ data.temperatureCurrent }</td>
+            <td>{ data.temperatureCurrent }&deg;C</td>
         </tr>
         <tr>
             <th>Humidity</th>
@@ -33,9 +33,9 @@ export class WeatherDisplay extends React.Component {
             <th>Maximum</th>   
         </tr>
         <tr>
-            <td>{ data.humidity }</td>
-            <td>{ data.temperatureMin }</td> 
-            <td>{ data.temperatureMax }</td>
+            <td>{ data.humidity }%</td>
+            <td>{ data.temperatureMin }&deg;C</td> 
+            <td>{ data.temperatureMax }&deg;C</td>
         </tr>
         </tbody>
     </table>

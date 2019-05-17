@@ -24,14 +24,10 @@ class App extends React.Component {
     render() {
         console.log(this.state)
         if (this.state.data) {
-            return ( <
-                div className = "App" >
-                <
-                WeatherDisplay data = { this.state.data }
-                /> <
-                CitySelector submitCity = { this.submitCity }
-                /> < /
-                div >
+            return ( <div className = "App" >
+                <WeatherDisplay data = { this.state.data } /> 
+                <CitySelector submitCity = { this.submitCity } /> 
+                </div >
             );
         } else {
             return "Loading"
